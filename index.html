@@ -1,0 +1,1085 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Code Space</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0e14;
+            color: #e5e7eb;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .header {
+            text-align: center;
+            padding: 35px 20px;
+            background: #10141d;
+            border-bottom: 1px solid #252a36;
+        }
+
+        .header h1 {
+            color: #a78bfa;
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1500px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .code-card {
+            min-width: 0;
+            background: #131720;
+            border: 1px solid #292f3d;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .code-card:hover {
+            border-color: #8b5cf6;
+        }
+
+        .card-header {
+            padding: 15px;
+            border-bottom: 1px solid #292f3d;
+        }
+
+        .card-header h2 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .card-header p {
+            color: #9ca3af;
+            font-size: 12px;
+        }
+
+        pre {
+            padding: 14px;
+            overflow-x: auto;
+            background: #0e1118;
+            max-height: 280px;
+        }
+
+        code {
+            color: #c4d4f5;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 12px;
+            white-space: pre;
+            line-height: 1.8;
+        }
+
+        .card-footer {
+            padding: 12px 15px;
+            color: #9ca3af;
+            font-size: 11px;
+            border-top: 1px solid #292f3d;
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #6b7280;
+            border-top: 1px solid #252a36;
+            font-size: 12px;
+        }
+
+        .copy-btn {
+    display: block;
+    margin: 10px 12px 0 auto;
+    padding: 7px 12px;
+    border: 1px solid #8b5cf6;
+    border-radius: 6px;
+    background: #8b5cf6;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.copy-btn:hover {
+    background: #7c3aed;
+    border-color: #7c3aed;
+}
+
+.copy-btn:focus-visible {
+    outline: 2px solid #c4b5fd;
+    outline-offset: 2px;
+}
+
+        @media (max-width: 1100px) {
+            .container {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 750px) {
+            .container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+                width: 92%;
+            }
+
+            .header h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>My Code Space</h1>
+        <p>My personal collection of code snippets</p>
+    </header>
+
+    <main class="container">
+
+        <!-- CONTAINER 1 -->
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 1: Exploratory Data Analysis</h2>
+                <p>Aim: Calculate descriptive statistics.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>import numpy as np
+import pandas as pd
+
+data = [10, 20, 30, 40, 50]
+
+print("Mean:", np.mean(data))
+print("Median:", np.median(data))
+print("Mode:", pd.Series(data).mode().tolist())
+print("Variance:", np.var(data))
+print("Standard Deviation:", np.std(data))
+print("Minimum:", np.min(data))
+print("Maximum:", np.max(data))</code></pre>
+            <div class="card-footer">SMD_1.pdf</div>
+        </section>
+
+        <!-- CONTAINER 2 -->
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 14: MLE</h2>
+                <p>Aim: Estimate mean and variance using MLE.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>import numpy as np
+
+data = np.array([50, 60, 70, 80, 90])
+
+mean = np.mean(data)
+variance = np.var(data, ddof=0)
+std = np.sqrt(variance)
+
+print("MLE Mean:", mean)
+print("MLE Variance:", variance)
+print("MLE Standard Deviation:", round(std, 2))</code></pre>
+            <div class="card-footer">SMD_14.pdf</div>
+        </section>
+
+        <!-- CONTAINER 3 -->
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 18: Regularized Regression</h2>
+                <p>Aim: Implement Ridge, Lasso and Elastic Net.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>import numpy as np
+from sklearn.linear_model import Ridge, Lasso, ElasticNet
+
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([2, 4, 5, 4, 5])
+
+models = {
+    "Ridge": Ridge(alpha=1.0),
+    "Lasso": Lasso(alpha=0.1),
+    "Elastic Net": ElasticNet(alpha=0.1, l1_ratio=0.5)
+}
+
+for name, model in models.items():
+    model.fit(X, y)
+    prediction = model.predict([[6]])
+    print(name, "Prediction:", round(prediction[0], 2))</code></pre>
+            <div class="card-footer">SMD_18.pdf</div>
+        </section>
+
+        <!-- CONTAINERS 4 TO 20 -->
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 2</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create dataset
+data = {
+    'Maths': [70, 80, 90, 60, 85],
+    'Science': [75, 85, 95, 65, 80],
+    'English': [65, 75, 85, 70, 90]
+}
+
+df = pd.DataFrame(data)
+
+# Display dataset
+print("Dataset:")
+print(df)
+
+# Plot histogram
+df.hist(figsize=(8, 5))
+plt.suptitle("Histograms of Subjects")
+plt.tight_layout()
+plt.show()
+
+# Generate correlation matrix
+correlation = df.corr()
+print("\nCorrelation Matrix:")
+print(correlation)
+
+# Plot correlation heatmap using Matplotlib
+plt.figure(figsize=(6, 4))
+plt.imshow(correlation, cmap="coolwarm", vmin=-1, vmax=1)
+
+plt.colorbar(label="Correlation")
+plt.xticks(range(len(correlation.columns)), correlation.columns)
+plt.yticks(range(len(correlation.index)), correlation.index)
+
+# Display correlation values
+for i in range(len(correlation.index)):
+    for j in range(len(correlation.columns)):
+        plt.text(
+            j, i,
+            f"{correlation.iloc[i, j]:.2f}",
+            ha="center",
+            va="center"
+        )
+
+plt.title("Correlation Matrix")
+plt.tight_layout()
+plt.show()
+</code></pre>
+            <div class="card-footer">SMD_2.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 3</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code># Practical 3: Data Preprocessing - I
+# Aim: To handle missing values using deletion and imputation.
+
+import pandas as pd
+import numpy as np
+
+# Create dataset with missing values
+data = {
+    'Age': [20, 25, np.nan, 30, 35],
+    'Marks': [80, np.nan, 70, 90, 85],
+    'City': ['Mumbai', 'Pune', np.nan, 'Mumbai', 'Pune']
+}
+
+df = pd.DataFrame(data)
+
+print("Original Dataset:")
+print(df)
+
+# Handle missing values using mean
+df['Age'] = df['Age'].fillna(df['Age'].mean())
+
+# Handle missing values using median
+df['Marks'] = df['Marks'].fillna(df['Marks'].median())
+
+# Handle missing values using mode
+df['City'] = df['City'].fillna(df['City'].mode()[0])
+
+print("\nDataset After Imputation:")
+print(df)
+
+# Handle missing values using deletion
+df_deleted = pd.DataFrame(data).dropna()
+
+print("\nDataset After Deletion:")
+print(df_deleted)
+</code></pre>
+            <div class="card-footer">SMD_3.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 4</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 4: Data Preprocessing - II
+
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder, StandardScaler, MinMaxScaler
+
+# Create dataset
+data = pd.DataFrame({
+    'City': ['Mumbai', 'Pune', 'Nashik', 'Mumbai', 'Pune'],
+    'Age': [20, 25, 30, 35, 40],
+    'Marks': [60, 70, 80, 90, 100]
+})
+
+print("Original Dataset:")
+print(data)
+
+# Label Encoding
+le = LabelEncoder()
+data['City_Label'] = le.fit_transform(data['City'])
+
+print("\nLabel Encoding:")
+print(data[['City', 'City_Label']])
+
+# One-Hot Encoding
+one_hot = pd.get_dummies(data['City'], prefix='City', dtype=int)
+print("\nOne-Hot Encoding:")
+print(one_hot)
+
+# Standard Scaling
+scaler = StandardScaler()
+standard_scaled = scaler.fit_transform(data[['Age', 'Marks']])
+
+print("\nStandard Scaler:")
+print(standard_scaled.round(2))
+
+# Min-Max Scaling
+minmax = MinMaxScaler()
+minmax_scaled = minmax.fit_transform(data[['Age', 'Marks']])
+
+print("\nMin-Max Scaler:")
+print(minmax_scaled.round(2))
+</code></pre>
+            <div class="card-footer">SMD_4.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 5</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 5: Outlier Detection using IQR and Box Plot
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Create dataset
+data = np.array([10, 12, 14, 15, 16, 18, 20, 22, 100])
+
+# Calculate Q1, Q3 and IQR
+Q1 = np.percentile(data, 25)
+Q3 = np.percentile(data, 75)
+IQR = Q3 - Q1
+
+# Calculate lower and upper limits
+lower = Q1 - 1.5 * IQR
+upper = Q3 + 1.5 * IQR
+
+# Detect outliers
+outliers = data[(data < lower) | (data > upper)]
+
+print("Dataset:", data)
+print("Q1:", Q1)
+print("Q3:", Q3)
+print("IQR:", IQR)
+print("Lower Bound:", lower)
+print("Upper Bound:", upper)
+print("Outliers:", outliers)
+
+# Handle outliers by removing them
+clean_data = data[(data >= lower) & (data <= upper)]
+print("Data after removing outliers:", clean_data)
+
+# Plot box plot
+plt.boxplot(data)
+plt.title("Box Plot for Outlier Detection")
+plt.ylabel("Values")
+plt.show()
+</code></pre>
+            <div class="card-footer">SMD_5.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 6</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 6: Simple Random Sampling and Stratified Sampling
+
+import pandas as pd
+
+# Create dataset
+data = {
+    'Name': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+    'Group': ['A', 'A', 'A', 'A', 'B', 'B', 'B', 'B'],
+    'Marks': [60, 70, 80, 90, 65, 75, 85, 95]
+}
+
+df = pd.DataFrame(data)
+
+print("Original Dataset:")
+print(df)
+
+# Simple Random Sampling
+srs = df.sample(n=4, random_state=42)
+print("\nSimple Random Sample:")
+print(srs)
+
+# Stratified Sampling
+stratified = df.groupby('Group', group_keys=False).sample(
+    n=2, random_state=42
+)
+
+print("\nStratified Sample:")
+print(stratified)
+
+# Compare samples
+print("\nSRS Group Counts:")
+print(srs['Group'].value_counts())
+
+print("\nStratified Group Counts:")
+print(stratified['Group'].value_counts())
+</code></pre>
+            <div class="card-footer">SMD_6.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 7</h2>
+                <p>
+# Practical 7: Cluster Sampling
+
+import pandas as pd
+
+# Create dataset
+data = {
+    'Student': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+    'Cluster': ['C1', 'C1', 'C1', 'C1', 'C2', 'C2', 'C2', 'C2'],
+    'Marks': [60, 70, 80, 90, 65, 75, 85, 95]
+}
+
+df = pd.DataFrame(data)
+
+print("Original Dataset:")
+print(df)
+
+# Select clusters randomly
+selected_clusters = df['Cluster'].drop_duplicates().sample(
+    n=1, random_state=42
+)
+
+# Obtain all members of selected clusters
+cluster_sample = df[df['Cluster'].isin(selected_clusters)]
+
+print("\nSelected Cluster:")
+print(selected_clusters.tolist())
+
+print("\nCluster Sample:")
+print(cluster_sample)
+</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code># Add your code here</code></pre>
+            <div class="card-footer">SMD_7.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 8</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 8: Central Limit Theorem
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a non-normal population
+np.random.seed(42)
+population = np.random.exponential(scale=10, size=10000)
+
+# Draw samples and calculate their means
+sample_means = []
+
+for i in range(1000):
+    sample = np.random.choice(population, size=30)
+    sample_means.append(np.mean(sample))
+
+# Display results
+print("Population Mean:", round(np.mean(population), 2))
+print("Mean of Sample Means:", round(np.mean(sample_means), 2))
+
+# Plot sampling distribution
+plt.hist(sample_means, bins=30, edgecolor="black")
+plt.title("Central Limit Theorem")
+plt.xlabel("Sample Means")
+plt.ylabel("Frequency")
+plt.show()
+</code></pre>
+            <div class="card-footer">SMD_8.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 9</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 9: Independent Two-Sample t-test
+
+import numpy as np
+from scipy.stats import ttest_ind
+
+# Marks of two groups of students
+group1 = np.array([70, 75, 80, 85, 90])
+group2 = np.array([60, 65, 70, 75, 80])
+
+# Perform independent two-sample t-test
+t_stat, p_value = ttest_ind(group1, group2)
+
+# Display results
+print("Group 1 Mean:", np.mean(group1))
+print("Group 2 Mean:", np.mean(group2))
+print("T-statistic:", round(t_stat, 4))
+print("P-value:", round(p_value, 4))
+
+# Interpret the p-value
+if p_value < 0.05:
+    print("Reject the null hypothesis.")
+    print("There is a significant difference between the groups.")
+else:
+    print("Fail to reject the null hypothesis.")
+    print("There is no statistically significant difference.")
+</code></pre>
+            <div class="card-footer">SMD_9.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 10</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 10: Chi-Square Test
+
+import pandas as pd
+from scipy.stats import chi2_contingency
+
+# Create a contingency table
+data = [[30, 10],
+        [20, 20]]
+
+df = pd.DataFrame(
+    data,
+    index=["Male", "Female"],
+    columns=["Pass", "Fail"]
+)
+
+print("Contingency Table:")
+print(df)
+
+# Perform Chi-square test
+chi2, p_value, dof, expected = chi2_contingency(df)
+
+print("\nChi-Square Statistic:", round(chi2, 4))
+print("P-value:", round(p_value, 4))
+print("Degrees of Freedom:", dof)
+print("\nExpected Frequencies:")
+print(expected)
+
+# Interpret the result
+if p_value < 0.05:
+    print("\nReject the null hypothesis.")
+    print("There is a significant association between the variables.")
+else:
+    print("\nFail to reject the null hypothesis.")
+    print("There is no significant association between the variables.")
+</code></pre>
+            <div class="card-footer">SMD_10.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 11</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 11: One-Way ANOVA
+
+import numpy as np
+from scipy.stats import f_oneway
+
+# Marks of three groups of students
+group1 = np.array([70, 75, 80, 85, 90])
+group2 = np.array([60, 65, 70, 75, 80])
+group3 = np.array([80, 85, 90, 95, 100])
+
+# Calculate group means
+print("Group 1 Mean:", np.mean(group1))
+print("Group 2 Mean:", np.mean(group2))
+print("Group 3 Mean:", np.mean(group3))
+
+# Perform one-way ANOVA
+f_stat, p_value = f_oneway(group1, group2, group3)
+
+print("\nF-statistic:", round(f_stat, 4))
+print("P-value:", round(p_value, 4))
+
+# Interpret results
+if p_value < 0.05:
+    print("Reject the null hypothesis.")
+    print("There is a significant difference between group means.")
+else:
+    print("Fail to reject the null hypothesis.")
+    print("There is no significant difference between group means.")
+</code></pre>
+            <div class="card-footer">SMD_11.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 12</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 12: Bootstrap Confidence Intervals
+
+import numpy as np
+
+# Sample dataset
+data = np.array([10, 20, 30, 40, 50])
+
+# Set random seed
+np.random.seed(42)
+
+# Bootstrap resampling
+bootstrap_means = []
+
+for i in range(1000):
+    sample = np.random.choice(data, size=len(data), replace=True)
+    bootstrap_means.append(np.mean(sample))
+
+# Calculate 95% confidence interval
+lower = np.percentile(bootstrap_means, 2.5)
+upper = np.percentile(bootstrap_means, 97.5)
+
+# Display results
+print("Sample Mean:", np.mean(data))
+print("95% Confidence Interval:", (round(lower, 2), round(upper, 2)))
+</code></pre>
+            <div class="card-footer">SMD_12.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 13</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 13: Permutation Test
+
+import numpy as np
+
+# Two groups of data
+group1 = np.array([10, 12, 14, 16, 18])
+group2 = np.array([20, 22, 24, 26, 28])
+
+# Calculate observed difference in means
+observed_diff = abs(np.mean(group1) - np.mean(group2))
+
+# Permutation test
+combined = np.concatenate([group1, group2])
+np.random.seed(42)
+permutations = 10000
+count = 0
+
+for i in range(permutations):
+    shuffled = np.random.permutation(combined)
+    new_group1 = shuffled[:len(group1)]
+    new_group2 = shuffled[len(group1):]
+
+    diff = abs(np.mean(new_group1) - np.mean(new_group2))
+
+    if diff >= observed_diff:
+        count += 1
+
+# Calculate p-value
+p_value = (count + 1) / (permutations + 1)
+
+print("Group 1 Mean:", np.mean(group1))
+print("Group 2 Mean:", np.mean(group2))
+print("Observed Difference:", observed_diff)
+print("P-value:", round(p_value, 4))
+
+if p_value < 0.05:
+    print("Reject the null hypothesis.")
+    print("The difference is statistically significant.")
+else:
+    print("Fail to reject the null hypothesis.")
+    print("The difference is not statistically significant.")
+</code></pre>
+            <div class="card-footer">SMD_13.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 15</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 15: MLE for Bernoulli Distribution
+
+import numpy as np
+
+# Dataset: 1 = Success, 0 = Failure
+data = np.array([1, 0, 1, 1, 0, 1, 1, 0, 1, 1])
+
+# Estimate probability using MLE
+p_mle = np.mean(data)
+
+# Display results
+print("Dataset:", data)
+print("Number of Successes:", np.sum(data))
+print("Total Observations:", len(data))
+print("MLE Probability of Success:", round(p_mle, 2))
+print("MLE Probability of Failure:", round(1 - p_mle, 2))
+</code></pre>
+            <div class="card-footer">SMD_15.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 16</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 16: Linear Regression
+
+import numpy as np
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score, mean_absolute_error
+from sklearn.metrics import mean_squared_error
+
+# Dataset
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([2, 4, 5, 4, 6])
+
+# Create and train model
+model = LinearRegression()
+model.fit(X, y)
+
+# Predict values
+y_pred = model.predict(X)
+
+# Evaluate model
+r2 = r2_score(y, y_pred)
+mae = mean_absolute_error(y, y_pred)
+mse = mean_squared_error(y, y_pred)
+rmse = np.sqrt(mse)
+
+# Display results
+print("Actual Values:", y)
+print("Predicted Values:", np.round(y_pred, 2))
+print("R2 Score:", round(r2, 4))
+print("MAE:", round(mae, 4))
+print("MSE:", round(mse, 4))
+print("RMSE:", round(rmse, 4))
+</code></pre>
+            <div class="card-footer">SMD_16.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 17</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+# Practical 17: Linear Regression Diagnostics
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+from statsmodels.stats.outliers_influence import (
+    variance_inflation_factor,
+    OLSInfluence
+)
+
+# Create dataset
+data = pd.DataFrame({
+    'X1': [1, 2, 3, 4, 5, 6, 7, 8],
+    'X2': [2, 4, 5, 8, 9, 12, 13, 16],
+    'Y':  [3, 5, 7, 8, 11, 13, 14, 17]
+})
+
+# Build regression model
+X = sm.add_constant(data[['X1', 'X2']])
+y = data['Y']
+
+model = sm.OLS(y, X).fit()
+predictions = model.predict(X)
+residuals = y - predictions
+
+print("Regression Summary:")
+print(model.summary())
+
+# Calculate VIF
+print("\nVariance Inflation Factor (VIF):")
+for i, column in enumerate(X.columns):
+    print(column, ":", round(
+        variance_inflation_factor(X.values, i), 2
+    ))
+
+# Calculate Cook's distance
+influence = OLSInfluence(model)
+cooks_distance = influence.cooks_distance[0]
+
+print("\nCook's Distance:")
+print(np.round(cooks_distance, 4))
+
+# Plot residuals
+plt.scatter(predictions, residuals)
+plt.axhline(y=0, color='red', linestyle='--')
+plt.xlabel("Predicted Values")
+plt.ylabel("Residuals")
+plt.title("Residual Plot")
+plt.show()
+
+# Plot Cook's distance
+plt.stem(range(len(cooks_distance)), cooks_distance)
+plt.xlabel("Observation Index")
+plt.ylabel("Cook's Distance")
+plt.title("Influential Observations")
+plt.show()
+</code></pre>
+            <div class="card-footer">SMD_17.pdf</div>
+        </section>
+
+                <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 19</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+
+# Practical 19: Logistic Regression and KNN
+
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
+
+# Dataset
+X = np.array([
+    [20, 40], [25, 45], [30, 50], [35, 55],
+    [40, 60], [45, 65], [50, 70], [55, 75],
+    [60, 80], [65, 85], [70, 90], [75, 95]
+])
+
+# 0 = Fail, 1 = Pass
+y = np.array([0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1])
+
+# Split dataset
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=42, stratify=y
+)
+
+# Create models
+models = {
+    "Logistic Regression": LogisticRegression(),
+    "KNN": KNeighborsClassifier(n_neighbors=3)
+}
+
+# Train and evaluate models
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+
+    print("\n", name)
+    print("Accuracy:", round(accuracy_score(y_test, y_pred), 2))
+    print("Confusion Matrix:")
+    print(confusion_matrix(y_test, y_pred))
+    print("Classification Report:")
+    print(classification_report(y_test, y_pred, zero_division=0))
+
+</code></pre>
+            <div class="card-footer">SMD_19.pdf</div>
+        </section>
+
+        <section class="code-card">
+            <div class="card-header">
+                <h2>Practical 20</h2>
+                <p>Aim: Add your practical aim.</p>
+            </div>
+            <button class="copy-btn" type="button">Copy Code</button>
+            <pre><code>
+
+# Practical 20: Naive Bayes Classifier with ROC Curve and AUC
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import (
+    accuracy_score, confusion_matrix,
+    classification_report, roc_curve, roc_auc_score
+)
+
+# Create dataset
+X = np.array([
+    [20, 40], [25, 45], [30, 50], [35, 55],
+    [40, 60], [45, 65], [50, 70], [55, 75],
+    [60, 80], [65, 85], [70, 90], [75, 95],
+    [22, 42], [32, 52], [48, 68], [68, 88]
+])
+
+# 0 = Fail, 1 = Pass
+y = np.array([
+    0, 0, 0, 0, 0, 1, 1, 1,
+    1, 1, 1, 1, 0, 0, 1, 1
+])
+
+# Split dataset
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=42, stratify=y
+)
+
+# Train Naive Bayes model
+model = GaussianNB()
+model.fit(X_train, y_train)
+
+# Predict classes and probabilities
+y_pred = model.predict(X_test)
+y_prob = model.predict_proba(X_test)[:, 1]
+
+# Evaluate model
+print("Accuracy:", round(accuracy_score(y_test, y_pred), 2))
+print("\nConfusion Matrix:")
+print(confusion_matrix(y_test, y_pred))
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred, zero_division=0))
+
+# Calculate ROC and AUC
+fpr, tpr, thresholds = roc_curve(y_test, y_prob)
+auc = roc_auc_score(y_test, y_prob)
+
+print("AUC Score:", round(auc, 2))
+
+# Plot ROC curve
+plt.plot(fpr, tpr, label=f"Naive Bayes (AUC = {auc:.2f})")
+plt.plot([0, 1], [0, 1], linestyle="--")
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.title("ROC Curve")
+plt.legend()
+plt.show()
+
+            </code></pre>
+            <div class="card-footer">SMD_20.pdf</div>
+        </section>        
+    </main>
+
+    <footer>
+        <p>My Code Space © 2026</p>
+    </footer>
+
+
+<script>
+document.addEventListener("click", async function (event) {
+    const button = event.target.closest(".copy-btn");
+    if (!button) return;
+
+    const card = button.closest(".code-card");
+    const code = card ? card.querySelector("pre code") : null;
+    if (!code) return;
+
+    try {
+        await navigator.clipboard.writeText(code.innerText);
+        const originalText = button.innerText;
+        button.innerText = "Copied!";
+        button.disabled = true;
+
+        setTimeout(function () {
+            button.innerText = originalText;
+            button.disabled = false;
+        }, 1500);
+    } catch (error) {
+        const textArea = document.createElement("textarea");
+        textArea.value = code.innerText;
+        textArea.style.position = "fixed";
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        try {
+            const copied = document.execCommand("copy");
+            if (copied) {
+                const originalText = button.innerText;
+                button.innerText = "Copied!";
+                button.disabled = true;
+                setTimeout(function () {
+                    button.innerText = originalText;
+                    button.disabled = false;
+                }, 1500);
+            }
+        } finally {
+            textArea.remove();
+        }
+    }
+});
+</script>
+
+</body>
+</html>
